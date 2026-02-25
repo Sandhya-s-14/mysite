@@ -209,11 +209,9 @@ button.secondary {
   border: 2px solid currentcolor;
   color: var(--text-color);
 }
-
-main img {
-  max-width: 100%;
-  width: auto;
-  height: auto;
+ .image img{
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .icon {
