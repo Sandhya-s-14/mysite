@@ -1,0 +1,30 @@
+.accordion .accordion-title {
+  cursor: pointer;
+  padding: 16px;
+  background: #e6e6e6;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+ 
+.accordion .accordion-title:hover {
+  background: #d4d4d4;
+}
+ 
+/* Arrow */
+.accordion-arrow {
+  transition: transform 0.3s ease;
+}
+ 
+/* Rotate arrow when open */
+.accordion .open .accordion-arrow {
+  transform: rotate(180deg);
+}
+ 
+.accordion .accordion-content {
+  padding: 16px;
+  background: #ffffff;
+  display: none;
+}
