@@ -1,0 +1,38 @@
+.product-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.product-card {
+  background: white;
+  padding: 20px;
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+
+.product-price {
+  font-size: 18px;
+  color: green;
+  margin-bottom: 8px;
+}
+
+.product-category {
+  font-size: 14px;
+  color: gray;
+  text-transform: capitalize;
+}
