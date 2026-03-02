@@ -1,44 +1,37 @@
 export default function decorate(block) {
-
-  const anchor = block.querySelector('a');
-  if (!anchor) return;
-
-  const href = anchor.href;
-
-  if (href.includes('youtube.com') || href.includes('youtu.be')) {
-
-    let videoId;
-
-    if (href.includes('youtu.be')) {
-      videoId = href.split('/').pop();
-    } else {
-      videoId = new URL(href).searchParams.get('v');
-    }
-
-    if (!videoId) return;
-
-    const thumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-
-    block.innerHTML = `
-      <div class="youtube-wrapper">
-        <img src="${thumbnail}" alt="YouTube Thumbnail" class="youtube-thumb">
-        <div class="play-button">▶</div>
-      </div>
-    `;
-
-    const wrapper = block.querySelector('.youtube-wrapper');
-
+  const link = block.querySelector('a');
+  const img = block.querySelector('img');
+  if (!link) return;
+ 
+  const url = new URL(link.href);
+  let videoId = '';
+ 
+  if (url.hostname.includes('youtube.com')) videoId = url.searchParams.get('v');
+  if (url.hostname.includes('youtu.be')) videoId = url.pathname.split('/')[1];
+ 
+  // rel=0 ensures only videos from the SAME channel are suggested
+  // modestbranding=1 removes the YouTube logo from the control bar
+  const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+ 
+  if (img) {
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('embed-placeholder');
+   
+    const playButton = document.createElement('div');
+    playButton.classList.add('embed-play-button');
+   
+    wrapper.append(img.closest('picture'), playButton);
+    block.textContent = '';
+    block.append(wrapper);
+ 
     wrapper.addEventListener('click', () => {
-      block.innerHTML = `
-        <iframe
-          width="100%"
-          height="450"
-          src="https://www.youtube.com/embed/${videoId}?autoplay=1"
-          frameborder="0"
-          allow="autoplay; encrypted-media"
-          allowfullscreen>
-        </iframe>
-      `;
+      const iframe = document.createElement('iframe');
+      iframe.src = embedUrl;
+      // Added standard permissions for better player behavior
+      iframe.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
+      iframe.setAttribute('allowfullscreen', '');
+      block.innerHTML = '';
+      block.append(iframe);
     });
   }
 }
