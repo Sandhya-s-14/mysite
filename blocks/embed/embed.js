@@ -1,43 +1,44 @@
 export default function decorate(block) {
-  block.classList.add('embed');
 
-  const link = block.querySelector('a');
-  if (!link) return;
+  const anchor = block.querySelector('a');
+  if (!anchor) return;
 
-  const url = link.href;
-  let embedURL = '';
+  const href = anchor.href;
 
-  // YouTube
-  if (url.includes('youtube.com') || url.includes('youtu.be')) {
-    const videoId = url.split('v=')[1]?.split('&')[0] ||
-                    url.split('/').pop();
-    embedURL = `https://www.youtube.com/embed/${videoId}`;
+  if (href.includes('youtube.com') || href.includes('youtu.be')) {
+
+    let videoId;
+
+    if (href.includes('youtu.be')) {
+      videoId = href.split('/').pop();
+    } else {
+      videoId = new URL(href).searchParams.get('v');
+    }
+
+    if (!videoId) return;
+
+    const thumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
+    block.innerHTML = `
+      <div class="youtube-wrapper">
+        <img src="${thumbnail}" alt="YouTube Thumbnail" class="youtube-thumb">
+        <div class="play-button">▶</div>
+      </div>
+    `;
+
+    const wrapper = block.querySelector('.youtube-wrapper');
+
+    wrapper.addEventListener('click', () => {
+      block.innerHTML = `
+        <iframe
+          width="100%"
+          height="450"
+          src="https://www.youtube.com/embed/${videoId}?autoplay=1"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen>
+        </iframe>
+      `;
+    });
   }
-
-  // Vimeo
-  if (url.includes('vimeo.com')) {
-    const videoId = url.split('/').pop();
-    embedURL = `https://player.vimeo.com/video/${videoId}`;
-  }
-
-  // Direct iframe link
-  if (url.includes('embed')) {
-    embedURL = url;
-  }
-
-  if (!embedURL) return;
-
-  const wrapper = document.createElement('div');
-  wrapper.classList.add('embed-wrapper');
-
-  const iframe = document.createElement('iframe');
-  iframe.src = embedURL;
-  iframe.allow =
-    'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-  iframe.allowFullscreen = true;
-
-  wrapper.appendChild(iframe);
-
-  block.textContent = '';
-  block.appendChild(wrapper);
 }

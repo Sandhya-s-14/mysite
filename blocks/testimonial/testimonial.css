@@ -1,0 +1,17 @@
+.testimonial {
+  background: #f4f6f8;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.testimonial-name {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.testimonial-message {
+  font-style: italic;
+  color: #555;
+}
