@@ -4,7 +4,7 @@
   padding: 30px;
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgb(0,0,0,8%);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 8%);
 }
 
 .form label {
@@ -25,20 +25,17 @@
   transition: border 0.3s ease;
 }
 
+/* textarea defined ONLY ONCE */
 .form textarea {
   min-height: 120px;
   resize: vertical;
 }
 
+/* focus comes AFTER normal selector */
 .form input:focus,
 .form textarea:focus {
   border-color: #1473e6;
   outline: none;
-}
-
-.form textarea {
-  min-height: 120px;
-  resize: vertical;
 }
 
 .form button {
