@@ -5,7 +5,10 @@ export default function decorate(block) {
   const url = new URL(link.href);
   let videoId = '';
   if (url.hostname.includes('youtube.com')) videoId = url.searchParams.get('v');
-  if (url.hostname.includes('youtu.be')) videoId = url.pathname.split('/')[1];
+  if (url.hostname.includes('youtu.be')) {
+  const [, id] = url.pathname.split('/');
+  videoId = id;
+}
   const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
   if (img) {
     const wrapper = document.createElement('div');

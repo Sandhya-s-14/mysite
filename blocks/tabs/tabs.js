@@ -28,23 +28,23 @@ export default function decorate(block) {
     tabContent.appendChild(contentDiv);
 
     // Click Event
-   button.addEventListener('click', () => {
-  block.querySelectorAll('.tab-btn')
-    .forEach((btn) => {
-      btn.classList.remove('active');
+    button.addEventListener('click', () => {
+    block.querySelectorAll('.tab-btn')
+      .forEach((btn) => {
+          btn.classList.remove('active');
     });
 
-  block.querySelectorAll('.tab-panel')
-    .forEach((panel) => {
-      panel.classList.remove('active');
+    block.querySelectorAll('.tab-panel')
+      .forEach((panel) => {
+          panel.classList.remove('active');
     });
 
-  button.classList.add('active');
-  contentDiv.classList.add('active');
-});
-});
+    button.classList.add('active');
+    contentDiv.classList.add('active');
+  });
+  });
 
-block.textContent = '';
-block.appendChild(tabNav);
-block.appendChild(tabContent);
+  block.textContent = '';
+  block.appendChild(tabNav);
+  block.appendChild(tabContent);
 }
