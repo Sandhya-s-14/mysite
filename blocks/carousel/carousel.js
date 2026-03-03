@@ -18,8 +18,7 @@ export default function decorate(block) {
   const totalSlides = slides.length;
 
   function updateCarousel() {
-    slidesWrapper.style.transform =
-      `translateX(-${currentIndex * 100}%)`;
+    slidesWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
   }
 
   // Create buttons
@@ -32,14 +31,12 @@ export default function decorate(block) {
   nextButton.classList.add('next');
 
   prevButton.addEventListener('click', () => {
-    currentIndex =
-      (currentIndex - 1 + totalSlides) % totalSlides;
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
     updateCarousel();
   });
 
   nextButton.addEventListener('click', () => {
-    currentIndex =
-      (currentIndex + 1) % totalSlides;
+    currentIndex = (currentIndex + 1) % totalSlides;
     updateCarousel();
   });
 
