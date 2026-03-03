@@ -20,9 +20,7 @@ export default async function decorate(block) {
 
       container.appendChild(card);
     });
-
     block.appendChild(container);
-
   } catch (error) {
     console.log('Error loading products:', error);
   }

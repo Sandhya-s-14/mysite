@@ -9,8 +9,7 @@ export default function decorate(block) {
 
   // YouTube
   if (url.includes('youtube.com') || url.includes('youtu.be')) {
-    const videoId = url.split('v=')[1]?.split('&')[0] ||
-                    url.split('/').pop();
+    const videoId = url.split('v=')[1]?.split('&')[0] || url.split('/').pop();
     embedURL = `https://www.youtube.com/embed/${videoId}`;
   }
 
@@ -27,8 +26,7 @@ export default function decorate(block) {
 
   const iframe = document.createElement('iframe');
   iframe.src = embedURL;
-  iframe.allow =
-    'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+  iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
   iframe.allowFullscreen = true;
 
   wrapper.appendChild(iframe);

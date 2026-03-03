@@ -44,8 +44,7 @@ export default function decorate(block) {
 
   /* -------- Auto Play -------- */
   setInterval(() => {
-    currentIndex =
-      (currentIndex + 1) % totalSlides;
+    currentIndex = (currentIndex + 1) % totalSlides;
     updateCarousel();
   }, 4000);
 }
