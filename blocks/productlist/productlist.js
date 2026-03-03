@@ -22,6 +22,6 @@ export default async function decorate(block) {
     });
     block.appendChild(container);
   } catch (error) {
-    console.log('Error loading products:', error);
+    console.error('Error loading products:', error);
   }
 }

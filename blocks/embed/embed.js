@@ -12,7 +12,7 @@ export default function decorate(block) {
   const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
   if (img) {
     const wrapper = document.createElement('div');
-wrapper.classList.add('embed-placeholder');  
+    wrapper.classList.add('embed-placeholder');
     const playButton = document.createElement('div');
     playButton.classList.add('embed-play-button');
     wrapper.append(img.closest('picture'), playButton);
