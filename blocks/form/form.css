@@ -2,9 +2,9 @@
   max-width: 600px;
   margin: 40px auto;
   padding: 30px;
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgb(0,0,0,8%);
 }
 
 .form label {
@@ -23,6 +23,11 @@
   border-radius: 6px;
   font-size: 14px;
   transition: border 0.3s ease;
+}
+
+.form textarea {
+  min-height: 120px;
+  resize: vertical;
 }
 
 .form input:focus,

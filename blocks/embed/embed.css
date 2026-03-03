@@ -24,7 +24,7 @@
   transform: translate(-50%, -50%);
   width: 80px;
   height: 80px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgb(0, 0, 0, 60%);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -42,7 +42,7 @@
 
 /* Hover effect */
 .embed-placeholder:hover .embed-play-button {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgb(0, 0, 0, 80%);
 }
 
 /* Responsive iframe */
@@ -51,10 +51,4 @@
   height: 450px;
   border: none;
   border-radius: 12px;
-}
-
-/* Responsive aspect ratio (better version) */
-.embed iframe {
-  aspect-ratio: 16 / 9;
-  height: auto;
 }

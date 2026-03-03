@@ -38,7 +38,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
+  background: rgb(0, 0, 50%);
   color: #fff;
   border: none;
   padding: 12px 18px;
@@ -57,7 +57,7 @@
 }
 
 .carousel button:hover {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgb(0, 0, 0, 80%);
 }
 
 /* ===== Responsive ===== */
