@@ -1,0 +1,8 @@
+{
+  "indices": {
+    "pages": {
+      "include": "/",
+      "target": "/query-index/pages.json"
+    }
+  }
+}
