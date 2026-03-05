@@ -1,60 +1,37 @@
-.form {
-  max-width: 600px;
+.dynamic-form {
+  max-width: 500px;
   margin: 40px auto;
-  padding: 30px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgb(0 0 0 / 8%);
+  font-family: Arial, sans-serif;
 }
-
-.form label {
+ 
+.form-group {
+  margin-bottom: 15px;
+}
+ 
+.dynamic-form label {
   display: block;
-  margin-bottom: 6px;
-  font-weight: 600;
-  color: #333;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
-
-.form input,
-.form textarea {
+ 
+.dynamic-form input,
+.dynamic-form textarea {
   width: 100%;
-  padding: 10px 12px;
-  margin-bottom: 20px;
+  padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-  transition: border 0.3s ease;
+  border-radius: 4px;
 }
-
-/* textarea defined ONLY ONCE */
-.form textarea {
-  min-height: 120px;
-  resize: vertical;
-}
-
-/* focus comes AFTER normal selector */
-.form input:focus,
-.form textarea:focus {
-  border-color: #1473e6;
-  outline: none;
-}
-
-.form button {
-  background-color: #1473e6;
-  color: #fff;
+ 
+.dynamic-form button {
   padding: 10px 20px;
+  background-color: #0072ce;
+  color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 15px;
-  transition: background 0.3s ease;
 }
-
-.form button:hover {
-  background-color: #0d66d0;
+ 
+.dynamic-form button:hover {
+  background-color: #005fa3;
 }
-
-.form .success-message {
-  color: green;
-  margin-top: 15px;
-  font-weight: 500;
-}
+ 
